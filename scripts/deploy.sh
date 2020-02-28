@@ -11,7 +11,7 @@ time openstack overcloud deploy --templates \
   -n ~/templates/$stack_name/network_data.yaml \
   -e /usr/share/openstack-tripleo-heat-templates/environments/network-isolation.yaml \
   -e /usr/share/openstack-tripleo-heat-templates/environments/network-environment.yaml \
-  -e ~/templates/$stack_name/containers-prepare-parameter.yaml \
+  -e ~/templates/containers-prepare-parameter.yaml \
   -e ~/templates/$stack_name/ips-from-pool-all.yaml \
   -e ~/templates/$stack_name/node-info.yaml \
   -e ~/templates/$stack_name/site-environment.yaml

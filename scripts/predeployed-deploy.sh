@@ -17,7 +17,7 @@ time openstack overcloud deploy --templates \
   -e $THT/environments/deployed-server-environment.yaml \
   -e $THT/environments/network-isolation.yaml \
   -e $THT/environments/network-environment.yaml \
-  -e ~/templates/$stack_name/containers-prepare-parameter.yaml \
+  -e ~/templates/containers-prepare-parameter.yaml \
   -e ~/templates/$stack_name/ips-from-pool-all.yaml \
   -e ~/templates/$stack_name/ctlplane-assignments.yaml \
   -e ~/templates/$stack_name/site-environment.yaml
