@@ -1,0 +1,90 @@
+---
+- name: import subscription manager information
+  include_vars: "rhsm.yml"
+  when: repository == "customer_portal" 
+  tags: 
+    - always
+
+#- name: register the server
+#  redhat_subscription:
+#    state: "present"
+#    #activationkey: "{{ activation_key }}"
+#    #org_id: "{{ rhsm_org_id }}"
+#    username: "xxxx"
+#    password: "xxxx"
+#    auto_attach: true
+#  register: new_register
+#  #when: repository == "customer_portal" 
+#  tags: 
+#    - always
+#    - repos
+
+# workaround tasks as redhat_subscription module is failing
+- name: check system registration status
+  shell: "subscription-manager status"
+  register: registration_status
+  when: repository == "customer_portal"
+  ignore_errors: true
+  tags:
+    - always
+    - repos
+
+- name: register the server
+  shell: "subscription-manager register --org={{ rhsm_org_id }} --activationkey={{ activation_key }} --force"
+  register: new_register
+  when: repository == "customer_portal" and registration_status is failed
+  tags:
+    - always
+    - repos
+
+- name: Ensure required repositories are enabled
+  shell: subscription-manager repos --disable=* --enable=rhel-8-for-x86_64-baseos-rpms --enable=rhel-8-for-x86_64-appstream-rpms --enable=rhel-8-for-x86_64-highavailability-rpms --enable=ansible-2.8-for-rhel-8-x86_64-rpms --enable=openstack-16-for-rhel-8-x86_64-rpms --enable=rhceph-4-osd-for-rhel-8-x86_64-rpms --enable=rhceph-4-mon-for-rhel-8-x86_64-rpms --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms --enable=advanced-virt-for-rhel-8-x86_64-rpms --enable=fast-datapath-for-rhel-8-x86_64-rpms
+  when: repository == "customer_portal" and (new_register.changed or force_repos)
+  tags: 
+    - always
+    - repos
+
+- name: Enable base repository - yum repos
+  yum_repository:
+    name: "{{ item }}"
+    description: "{{ item }}"
+    baseurl: "{{ baseurl }}/{{ item }}"
+    gpgcheck: no
+  with_items:
+    - rhel-8-for-x86_64-baseos-rpms
+    - rhel-8-for-x86_64-appstream-rpms
+  when: repository == "yumrepo" and update_packages
+  register: yumrepo
+  tags:
+    - always
+    - repos
+
+## yum update
+- name: update packages
+  yum:
+    name: '*'
+    state: latest
+  register: package_update
+  # Initial update only.
+  # Subsequent updates should be handled by another play
+  when: new_register.changed or force_repos or yumrepo.changed
+  tags:
+    - always
+    - package_install
+
+- name: Reboot
+  shell: sleep 5 && reboot
+  async: 30
+  poll: 0
+  ignore_errors: true
+  when: package_update is changed 
+
+- name: Wait for the reboot to complete if there was a change.
+  wait_for_connection:
+    connect_timeout: 20
+    sleep: 5
+    delay: 5
+    timeout: 300
+  when: package_update is changed 
+
+

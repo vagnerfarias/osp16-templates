@@ -1,0 +1,47 @@
+# Environment file demonstrating how to pre-assign IPs to all node types
+resource_registry:
+  OS::TripleO::Controller::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/ports/external_c2_from_pool.yaml
+  OS::TripleO::Controller::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api_c2_from_pool.yaml
+  OS::TripleO::Controller::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_c2_from_pool.yaml
+  OS::TripleO::Controller::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_mgmt_c2_from_pool.yaml
+  OS::TripleO::Controller::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/tenant_c2_from_pool.yaml
+  # Management network is optional and disabled by default
+  #OS::TripleO::Controller::Ports::ManagementPort: /usr/share/openstack-tripleo-heat-templates/network/ports/management_from_pool.yaml
+
+  OS::TripleO::Compute::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/ports/noop.yaml
+  OS::TripleO::Compute::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/internal_api_c2_from_pool.yaml
+  OS::TripleO::Compute::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/storage_c2_from_pool.yaml
+  OS::TripleO::Compute::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/noop.yaml
+  OS::TripleO::Compute::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/tenant_c2_from_pool.yaml
+  #OS::TripleO::Compute::Ports::ManagementPort: /usr/share/openstack-tripleo-heat-templates/network/ports/management_from_pool.yaml
+
+parameter_defaults:
+  ControllerIPs:
+    # Each controller will get an IP from the lists below, first controller, first IP
+    #ctlplane:
+    #- 192.0.2.41
+    external:
+    - 10.0.1.41
+    internal_api:
+    - 172.17.1.41
+    storage:
+    - 172.19.1.41
+    storage_mgmt:
+    - 172.16.1.41
+    tenant:
+    - 172.18.1.41
+    #management:
+    #- 172.16.4.251
+  ComputeIPs:
+    # Each compute will get an IP from the lists below, first compute, first IP
+    ctlplane:
+    - 192.0.2.51
+    internal_api:
+    - 172.17.1.51
+    storage:
+    - 172.19.1.51
+    tenant:
+    - 172.18.1.51
+    #management:
+    #- 172.16.4.252
+

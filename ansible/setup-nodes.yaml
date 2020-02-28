@@ -1,0 +1,10 @@
+---
+- name: Prepare nodes to install OpenStack Platform
+  hosts: ospall
+  become: yes
+  remote_user: stack
+  vars:
+    repository: customer_portal
+    force_repos: false
+  roles:
+    - ospNodeSetup

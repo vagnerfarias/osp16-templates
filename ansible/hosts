@@ -1,0 +1,9 @@
+[ospall:children]
+ospcontroller
+ospcompute
+
+[ospcontroller]
+192.0.2.41
+
+[ospcompute]
+192.0.2.51

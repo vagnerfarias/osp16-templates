@@ -1,0 +1,4 @@
+parameter_defaults:
+  HostnameMap:
+    predeployed-controller-0: ctrl01-predeployed
+    predeployed-novacompute-0: compute01-predeployed    

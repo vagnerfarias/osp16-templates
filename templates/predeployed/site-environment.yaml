@@ -1,0 +1,53 @@
+resource_registry:
+  OS::TripleO::Compute::Net::SoftwareConfig: ./nic-configs/compute.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: ./nic-configs/controller.yaml
+
+parameter_defaults:
+  # NetworkDeploymentActions
+  #NetworkDeploymentActions: ['CREATE','UPDATE']
+
+  # General settings
+  TimeZone: 'America/Sao_Paulo'
+  NtpServer:
+    - 0.pool.ntp.org
+  DnsServers:
+    - 192.0.2.254
+
+  # OpenStack Neutron settings
+  NeutronExternalNetworkBridge: "''"
+  NeutronEnableIsolatedMetadata: true
+  NeutronGlobalPhysnetMtu: 1500
+  NeutronNetworkVLANRanges:
+    - datacentre:100:120
+  NeutronTunnelTypes: 'geneve'
+  NeutronNetworkType: ['geneve','vlan']
+
+  # Barbican
+  #BarbicanSimpleCryptoGlobalDefault: true
+
+  ExternalNetValueSpecs: {'provider:physical_network': 'external_c2', 'provider:network_type': 'flat'}
+
+  #ControllerSchedulerHints:
+  #  'capabilities:node': 'controller-%index%'
+  #ComputeSchedulerHints:
+  #  'capabilities:node': 'compute-%index%'
+
+  #HostnameMap:
+  #  overcloud-controller-0: controller-1
+  #  overcloud-controller-1: controller-2
+  #  overcloud-controller-2: controller-3
+  #  overcloud-novacompute-0: compute-1
+  #  overcloud-novacompute-1: compute-2
+  #  overcloud-novacompute-2: compute-3
+
+  HostnameMap:
+    predeployed-controller-0: ctrl01-predeployed
+    predeployed-novacompute-0: compute01-predeployed    
+
+  ControlPlaneDefaultRoute: 192.0.2.254
+  ControlPlaneSubnetCidr: '24'
+  ExternalInterfaceDefaultRoute: 10.0.0.254
+
+  ComputeExtraConfig:
+    nova::compute::resume_guests_state_on_host_boot: true
+

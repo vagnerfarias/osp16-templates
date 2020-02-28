@@ -1,0 +1,240 @@
+2020-02-21 19:07:14.809 626759 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-21 19:15:56.822 626759 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-21 19:16:52.974 626759 ERROR openstack [  admin] Overcloud configuration failed.
+2020-02-21 19:42:36.110 681404 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-21 19:51:26.257 696157 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-21 20:00:05.832 696157 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-21 20:15:12.585 696157 ERROR openstack [  admin] Overcloud configuration failed.
+2020-02-21 21:08:41.057 820358 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-21 21:17:30.738 820358 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-21 21:18:31.182 820358 ERROR openstack [  admin] Overcloud configuration failed.
+2020-02-21 23:50:52.593 23055 ERROR tripleoclient.v1.overcloud_deploy.DeployOvercloud [  admin] Exception occured while running the command
+Traceback (most recent call last):
+  File "/usr/lib64/python3.6/urllib/request.py", line 1474, in open_local_file
+    stats = os.stat(localfile)
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/openstack-tripleo-heat-templates/network/ports/external_2_from_pool.yaml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/heatclient/common/utils.py", line 415, in read_url_content
+    content = request.urlopen(url).read()
+  File "/usr/lib64/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/lib64/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/lib64/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python3.6/urllib/request.py", line 1452, in file_open
+    return self.open_local_file(req)
+  File "/usr/lib64/python3.6/urllib/request.py", line 1491, in open_local_file
+    raise URLError(exp)
+urllib.error.URLError: <urlopen error [Errno 2] No such file or directory: '/usr/share/openstack-tripleo-heat-templates/network/ports/external_2_from_pool.yaml'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/tripleoclient/utils.py", line 1116, in process_multiple_environments
+    env_path=env_path)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 319, in process_environment_and_files
+    env_base_url)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 357, in resolve_environment_urls
+    is_object=is_object, object_request=object_request)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 161, in get_file_contents
+    file_content = utils.read_url_content(str_url)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/utils.py", line 417, in read_url_content
+    raise exc.CommandError(_('Could not fetch contents for %s') % url)
+heatclient.exc.CommandError: Could not fetch contents for file:///usr/share/openstack-tripleo-heat-templates/network/ports/external_2_from_pool.yaml
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.6/urllib/request.py", line 1474, in open_local_file
+    stats = os.stat(localfile)
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/openstack-tripleo-heat-templates/network/ports/internal_api_2_from_pool.yaml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/heatclient/common/utils.py", line 415, in read_url_content
+    content = request.urlopen(url).read()
+  File "/usr/lib64/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/lib64/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/lib64/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python3.6/urllib/request.py", line 1452, in file_open
+    return self.open_local_file(req)
+  File "/usr/lib64/python3.6/urllib/request.py", line 1491, in open_local_file
+    raise URLError(exp)
+urllib.error.URLError: <urlopen error [Errno 2] No such file or directory: '/usr/share/openstack-tripleo-heat-templates/network/ports/internal_api_2_from_pool.yaml'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/tripleoclient/command.py", line 32, in run
+    super(Command, self).run(parsed_args)
+  File "/usr/lib/python3.6/site-packages/osc_lib/command/command.py", line 41, in run
+    return super(Command, self).run(parsed_args)
+  File "/usr/lib/python3.6/site-packages/cliff/command.py", line 185, in run
+    return_code = self.take_action(parsed_args) or 0
+  File "/usr/lib/python3.6/site-packages/tripleoclient/v1/overcloud_deploy.py", line 955, in take_action
+    self._deploy_tripleo_heat_templates_tmpdir(stack, parsed_args)
+  File "/usr/lib/python3.6/site-packages/tripleoclient/v1/overcloud_deploy.py", line 374, in _deploy_tripleo_heat_templates_tmpdir
+    new_tht_root, tht_root)
+  File "/usr/lib/python3.6/site-packages/tripleoclient/v1/overcloud_deploy.py", line 450, in _deploy_tripleo_heat_templates
+    cleanup=(not parsed_args.no_cleanup))
+  File "/usr/lib/python3.6/site-packages/tripleoclient/utils.py", line 1164, in process_multiple_environments
+    env_path=f.name)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 319, in process_environment_and_files
+    env_base_url)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 357, in resolve_environment_urls
+    is_object=is_object, object_request=object_request)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 161, in get_file_contents
+    file_content = utils.read_url_content(str_url)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/utils.py", line 417, in read_url_content
+    raise exc.CommandError(_('Could not fetch contents for %s') % url)
+heatclient.exc.CommandError: Could not fetch contents for file:///usr/share/openstack-tripleo-heat-templates/network/ports/internal_api_2_from_pool.yaml
+2020-02-21 23:50:52.603 23055 ERROR openstack [  admin] Could not fetch contents for file:///usr/share/openstack-tripleo-heat-templates/network/ports/internal_api_2_from_pool.yaml
+2020-02-21 23:56:32.949 31106 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-22 00:05:00.156 31106 ERROR openstack [  admin] Heat Stack create failed.
+2020-02-22 00:54:01.707 120057 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-22 01:02:49.906 120057 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-22 01:03:52.211 120057 ERROR openstack [  admin] Overcloud configuration failed.
+2020-02-22 01:16:17.133 159481 ERROR openstack [  admin] Can't find path /home/stack/templates/predeployed/roles-data.yaml /home/stack/templates/predeployed/roles-data.yaml
+2020-02-22 01:33:10.780 182342 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-22 01:41:49.575 182342 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-22 01:42:52.817 182342 ERROR openstack [  admin] Overcloud configuration failed.
+2020-02-22 02:48:44.949 299310 ERROR openstack [  admin] Action tripleo.parameters.update execution failed: Error validating environment for plan predeployed: ERROR: Property error: resources.VipMap.properties: Unknown Property StorageIp
+  File "/usr/lib/python3.6/site-packages/heat/common/wsgi.py", line 892, in __call__
+    request, **action_args)
+  File "/usr/lib/python3.6/site-packages/heat/common/wsgi.py", line 965, in dispatch
+    return method(*args, **kwargs)
+  File "/usr/lib/python3.6/site-packages/heat/api/openstack/v1/util.py", line 55, in handle_stack_method
+    return handler(controller, req, **kwargs)
+  File "/usr/lib/python3.6/site-packages/heat/api/openstack/v1/stacks.py", line 634, in validate_template
+    raise exc.HTTPBadRequest(result['Error'])
+
+2020-02-22 13:09:10.604 14343 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-22 13:19:12.514 14343 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-22 13:21:07.886 14343 ERROR openstack [  admin] Overcloud configuration failed.
+2020-02-22 20:58:29.170 15205 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-22 21:11:41.670 15205 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-22 22:00:36.960 15205 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-22 22:00:39.397 15205 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-24 15:30:23.725 324065 ERROR tripleoclient.v1.overcloud_deploy.DeployOvercloud [  admin] Exception occured while running the command
+Traceback (most recent call last):
+  File "/usr/lib64/python3.6/urllib/request.py", line 1474, in open_local_file
+    stats = os.stat(localfile)
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/openstack-tripleo-heat-templates/network/ports/external_from_pool.yaml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/heatclient/common/utils.py", line 415, in read_url_content
+    content = request.urlopen(url).read()
+  File "/usr/lib64/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/lib64/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/lib64/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python3.6/urllib/request.py", line 1452, in file_open
+    return self.open_local_file(req)
+  File "/usr/lib64/python3.6/urllib/request.py", line 1491, in open_local_file
+    raise URLError(exp)
+urllib.error.URLError: <urlopen error [Errno 2] No such file or directory: '/usr/share/openstack-tripleo-heat-templates/network/ports/external_from_pool.yaml'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/tripleoclient/utils.py", line 1116, in process_multiple_environments
+    env_path=env_path)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 319, in process_environment_and_files
+    env_base_url)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 357, in resolve_environment_urls
+    is_object=is_object, object_request=object_request)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 161, in get_file_contents
+    file_content = utils.read_url_content(str_url)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/utils.py", line 417, in read_url_content
+    raise exc.CommandError(_('Could not fetch contents for %s') % url)
+heatclient.exc.CommandError: Could not fetch contents for file:///usr/share/openstack-tripleo-heat-templates/network/ports/external_from_pool.yaml
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.6/urllib/request.py", line 1474, in open_local_file
+    stats = os.stat(localfile)
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tripleoclient-bg177o4b/tripleo-heat-templates/network/ports/internal_api_from_pool.yaml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/heatclient/common/utils.py", line 415, in read_url_content
+    content = request.urlopen(url).read()
+  File "/usr/lib64/python3.6/urllib/request.py", line 223, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib64/python3.6/urllib/request.py", line 526, in open
+    response = self._open(req, data)
+  File "/usr/lib64/python3.6/urllib/request.py", line 544, in _open
+    '_open', req)
+  File "/usr/lib64/python3.6/urllib/request.py", line 504, in _call_chain
+    result = func(*args)
+  File "/usr/lib64/python3.6/urllib/request.py", line 1452, in file_open
+    return self.open_local_file(req)
+  File "/usr/lib64/python3.6/urllib/request.py", line 1491, in open_local_file
+    raise URLError(exp)
+urllib.error.URLError: <urlopen error [Errno 2] No such file or directory: '/tmp/tripleoclient-bg177o4b/tripleo-heat-templates/network/ports/internal_api_from_pool.yaml'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/site-packages/tripleoclient/command.py", line 32, in run
+    super(Command, self).run(parsed_args)
+  File "/usr/lib/python3.6/site-packages/osc_lib/command/command.py", line 41, in run
+    return super(Command, self).run(parsed_args)
+  File "/usr/lib/python3.6/site-packages/cliff/command.py", line 185, in run
+    return_code = self.take_action(parsed_args) or 0
+  File "/usr/lib/python3.6/site-packages/tripleoclient/v1/overcloud_deploy.py", line 955, in take_action
+    self._deploy_tripleo_heat_templates_tmpdir(stack, parsed_args)
+  File "/usr/lib/python3.6/site-packages/tripleoclient/v1/overcloud_deploy.py", line 374, in _deploy_tripleo_heat_templates_tmpdir
+    new_tht_root, tht_root)
+  File "/usr/lib/python3.6/site-packages/tripleoclient/v1/overcloud_deploy.py", line 450, in _deploy_tripleo_heat_templates
+    cleanup=(not parsed_args.no_cleanup))
+  File "/usr/lib/python3.6/site-packages/tripleoclient/utils.py", line 1164, in process_multiple_environments
+    env_path=f.name)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 319, in process_environment_and_files
+    env_base_url)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 357, in resolve_environment_urls
+    is_object=is_object, object_request=object_request)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/template_utils.py", line 161, in get_file_contents
+    file_content = utils.read_url_content(str_url)
+  File "/usr/lib/python3.6/site-packages/heatclient/common/utils.py", line 417, in read_url_content
+    raise exc.CommandError(_('Could not fetch contents for %s') % url)
+heatclient.exc.CommandError: Could not fetch contents for file:///tmp/tripleoclient-bg177o4b/tripleo-heat-templates/network/ports/internal_api_from_pool.yaml
+2020-02-24 15:30:23.737 324065 ERROR openstack [  admin] Could not fetch contents for file:///tmp/tripleoclient-bg177o4b/tripleo-heat-templates/network/ports/internal_api_from_pool.yaml
+2020-02-24 15:33:56.957 328082 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-24 15:43:53.610 328082 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-24 15:45:16.454 328082 ERROR openstack [  admin] Overcloud configuration failed.
+2020-02-24 15:57:14.638 366212 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-24 16:09:10.309 10771 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-24 16:19:13.595 10771 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-24 16:31:45.431 10771 ERROR openstack [  admin] Overcloud configuration failed.
+2020-02-24 17:24:28.758 131129 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-24 17:37:27.050 131129 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-24 17:41:20.866 131129 ERROR openstack [  admin] Overcloud configuration failed.
+2020-02-24 18:58:46.587 279658 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-24 19:11:41.870 279658 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-24 19:55:16.257 279658 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-24 19:55:18.587 279658 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-26 10:48:05.391 45025 WARNING tripleoclient.workflows.parameters [  admin] WARNING: Following parameter(s) are defined but not currently used in the deployment plan. These parameters may be valid but not in use due to the service or deployment configuration. BondInterfaceOvsOptions, NeutronEnableIsolatedMetadata, NeutronExternalNetworkBridge, NeutronTunnelTypes
+2020-02-26 10:57:00.962 45025 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-26 11:40:27.822 45025 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
+2020-02-26 11:40:29.826 45025 WARNING tripleoclient.plugin [  admin] Waiting for messages on queue 'tripleo' with no timeout.
