@@ -1,0 +1,25 @@
+nodes:
+  - mac:
+      - 2c:c2:60:01:02:02
+    name: "controller-1"
+    capabilities: profile:control,boot_option:local,node:controller-0
+    pm_type: "ipmi"
+    pm_user: "admin"
+    pm_password: "redhat"
+    pm_addr: "192.0.2.221"
+  - mac:
+      - 2c:c2:60:01:02:05
+    name: "compute-1"
+    capabilities: profile:compute,boot_option:local,node:compute-0
+    pm_type: "ipmi"
+    pm_user: "admin"
+    pm_password: "redhat"
+    pm_addr: "192.0.2.224"
+  - mac:
+      - 2c:c2:60:01:02:06
+    name: "compute-2"
+    capabilities: profile:compute,boot_option:local,node:compute-1
+    pm_type: "ipmi"
+    pm_user: "admin"
+    pm_password: "redhat"
+    pm_addr: "192.0.2.225"
